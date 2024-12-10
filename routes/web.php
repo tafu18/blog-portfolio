@@ -19,10 +19,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/main', [HomeController::class, 'index'])->name('home');
+
+
 require __DIR__.'/auth.php';
 
 
-Route::prefix('admin')->name('admin.')->middleware([/* 'auth', 'verified' */])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
@@ -33,4 +36,3 @@ Route::prefix('admin')->name('admin.')->middleware([/* 'auth', 'verified' */])->
 });
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
