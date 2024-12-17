@@ -15,9 +15,25 @@ class PostController extends Controller
         return view('admin.posts.index', compact('posts'));
     }
 
+    public function index2()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        return view('blog.posts', compact('posts'));
+    }
+
     public function show(Post $post)
     {
         return view('admin.posts.show', compact('post'));
+    }
+
+    public function showForClient(Post $post)
+    {
+        return view('posts.show', compact('post'));
+    }
+
+    public function showForClient2(Post $post)
+    {
+        return view('blog.post', compact('post'));
     }
 
 

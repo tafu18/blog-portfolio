@@ -7,7 +7,7 @@
     <h1 class="display-4 text-center mb-4">{{ $post->title }}</h1>
 
     <div class="card mb-4 shadow-lg">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header text-white" style="background-color: #4e73df;">
             <h3 class="m-0">Gönderi Detayları</h3>
         </div>
         <div class="card-body">
@@ -18,13 +18,13 @@
             </div>
             @endif
             <h1 class="display-8 text-center mb-4">{{ $post->title }}</h1>
-                <p> {!! nl2br(e($post->content)) !!}</p> <!-- Normal metin olarak '#' işlenir -->
+            <p> {!! nl2br(e($post->content)) !!}</p> <!-- Normal metin olarak '#' işlenir -->
         </div>
     </div>
 
     <!-- Geri Dön Butonu -->
     <div class="text-center">
-        <a href="{{ route('admin.posts.index') }}" class="btn btn-secondary btn-lg">Geri Dön</a>
+        <a href="{{ route('home') }}" class="btn btn-secondary btn-lg">Geri Dön</a>
     </div>
 </div>
 @endsection
