@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Hakkımda')
+@section('title', 'Ben Kimim?')
 
 @section('content')
 <header class="masthead" style="background-image: url('{{ asset('storage/about-bg.jpg') }}')">
