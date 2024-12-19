@@ -35,11 +35,14 @@ Route::get('/project', function () {
 })->name('projects');
 
 
-
-
-Route::get('/', function () {
-    return view('index');
+Route::get('/symlink', function () {
+    $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/storage/app/public';
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/public/storage';
+    symlink($targetFolder,$linkFolder);
+    echo 'Symlink process successfully completed';
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
