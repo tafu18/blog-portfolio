@@ -4,7 +4,7 @@
 
 @section('content')
 <header class="masthead" style="padding-bottom: 3.5rem; background-image: url('{{ asset('storage/about-bg.jpg') }}')">
-    <div class="container position-relative px-4 px-lg-5 mx-auto" style="max-width: 90%;">
+    <div class="container position-relative px-4 px-lg-5 mx-auto" style="max-width: 90%; background-color: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading text-center">

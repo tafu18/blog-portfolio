@@ -4,20 +4,23 @@
 
 @section('content')
 <header class="masthead" style="background-image: url('{{ asset('storage/posts/main.webp') }}');">
-    <div class="container position-relative px-4 px-lg-5">
+    <div class="container position-relative px-4 px-lg-5" style="max-width: 90%; background-color: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading text-center text-white">
                     <h1 class="display-4">Tayfun Taşdemir</h1>
                     <span id="random-quote"></span>
                     <span class="subheading d-block mb-4">Bilgisayar Mühendisi | Yazılım Geliştirici | Backend Developer</span>
-                    <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg px-5 py-3">İletişime Geçin</a>
-                    <a href="{{ asset('storage/cv-tr.pdf') }}" class="btn btn-outline-light btn-lg px-5 py-3" download>Özgeçmişimi İndir</a>
+                    <div class="button-container">
+                        <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg px-5 py-3">İletişime Geçin</a>
+                        <a href="{{ asset('storage/cv-tr.pdf') }}" class="btn btn-outline-light btn-lg px-5 py-3" download>Özgeçmişimi İndir</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
 
 <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -42,9 +45,9 @@
         <div class="col-md-5 mb-4">
             <div class="card shadow-lg border-0 rounded-lg">
                 <div class="card-body p-5 text-center">
-                    <h3 class="card-title text-primary mb-4">Blog Yazılarım</h3>
+                    <h3 class="card-title text-primary mb-4">Gönderilerim</h3>
                     <p class="card-text mb-4">Yazılım geliştirme süreçlerim ve teknoloji dünyası ile ilgili düşüncelerimi paylaşıyorum. Blog yazılarıma göz atarak daha fazla bilgi edinin.</p>
-                    <a href="{{ route('posts') }}" class="btn btn-primary btn-lg px-5 py-3">Blog'a Göz At</a>
+                    <a href="{{ route('posts') }}" class="btn btn-primary btn-lg px-5 py-3">Gönderilerime Göz At</a>
                 </div>
             </div>
         </div>

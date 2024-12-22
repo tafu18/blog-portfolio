@@ -19,7 +19,7 @@ class PostController extends Controller
     {
         $perPage = request()->has('perPage') ? request()->input('perPage') : 8;
 
-        if (request()->wantsJson()) {
+        if (request()->wantsJson() || request()->input('isMobile')) {
             $perPage = 4;
         }
 

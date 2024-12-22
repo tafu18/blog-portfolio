@@ -4,13 +4,13 @@
 
 @section('content')
 <header class="masthead" style="background-image: url('{{ asset('storage/posts/main.webp') }}');">
-    <div class="container position-relative px-4 px-lg-5">
+    <div class="container position-relative px-4 px-lg-5" style="max-width: 90%; background-color: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading text-center text-white">
-                    <h1 class="display-4">Tayfun Taşdemir</h1>
+                    <h1 class="display-4 text-shadow">Tayfun Taşdemir</h1>
                     <span id="random-quote"></span>
-                    <span class="subheading d-block mb-4">Bilgisayar Mühendisi | Yazılım Geliştirici | Backend Developer</span>
+                    <span class="subheading d-block mb-4 text-shadow">Bilgisayar Mühendisi | Yazılım Geliştirici | Backend Developer</span>
                     <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg px-5 py-3">İletişime Geçin</a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
 
             <!-- Sayfalama Linkleri -->
             <div class="d-flex justify-content-center">
-                {{ $posts->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
+                {{ $posts->appends(request()->except(['page', 'isMobile']))->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>
@@ -156,12 +156,10 @@
 
 
     // Mobil cihazlarda 4 post göstermek için isMobile parametresi ekleyelim
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 768 && !window.location.search.includes('isMobile')) {
         let url = new URL(window.location.href);
-        if (!url.searchParams.has('isMobile')) {
-            url.searchParams.set('isMobile', 'true');
-            window.location.href = url.toString();
-        }
+        url.searchParams.set('isMobile', 'true');
+        window.location.href = url.toString();
     }
 </script>
 
