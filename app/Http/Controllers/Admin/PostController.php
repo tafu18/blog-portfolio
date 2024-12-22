@@ -17,9 +17,16 @@ class PostController extends Controller
 
     public function index2()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+        $perPage = request()->has('perPage') ? request()->input('perPage') : 8;
+
+        if (request()->wantsJson()) {
+            $perPage = 4;
+        }
+
+        $posts = Post::orderBy('created_at', 'desc')->paginate($perPage);
         return view('blog.posts', compact('posts'));
     }
+
 
     public function show(Post $post)
     {

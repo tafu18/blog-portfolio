@@ -10,7 +10,7 @@
                 <div class="post-heading">
                     <h1>Projelerim</h1>
                     <span class="subheading">"Bilmek, Bulmak ve Olmak"</span>
-
+                    <span id="random-quote"></span>
                     <span class="meta">Son Güncelleme: {{ now()->format('d F Y') }}</span>
                 </div>
             </div>
@@ -27,6 +27,24 @@
         </div>
     </div>
     <hr class="my-4">
+
+</section>
+
+<section>
+    <div class="container px-4 px-lg-5 mb-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <!-- Yeni Projeler İçin İşbirliği Yapmak İstiyorum Kartı -->
+            <div class="col-xl-12 col-lg-8 col-xl-5">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="card-title text-primary mb-4">Yeni Projeler İçin İşbirliği Yapmak İstiyorum</h3>
+                        <p class="card-text mb-4">Yazılım geliştirme konusunda tecrübemi projelerinizde kullanmak istiyorum. Eğer projelerinizde yazılım desteğine ihtiyacınız varsa, birlikte çalışmayı çok isterim. Detaylı bilgi ve görüşme için aşağıdaki butona tıklayın.</p>
+                        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg px-5 py-3">İletişime Geçin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
 
 </section>
 
@@ -236,8 +254,52 @@
 
         </div>
     </div>
-    <hr class="my-4">
 </section>
 
+<script>
+    const quotes = [
+        "Mevlana: “İki günü eşit olan zarardadır.”",
+        "Azi Mahmud Hüdai: “Her şey gönlünde olduğu gibi olur.”",
+        "Yunus Emre: “Biri var, her zaman seninle, o da sensin.”",
+        "Mevlana: “Dünle beraber gitti, ne kadar söz varsa düne ait.”",
+        "Azi Mahmud Hüdai: “Birlikten kuvvet doğar, ayrılık hüsran getirir.”",
+        "Yunus Emre: “Gerçekten sev, ne oldum deme, ne olacağım de.”",
+        "Nesimi: 'Ben de bir insanım, her insan gibi bir acıyı hissederim.'",
+        "İbn Arabi: 'Gerçek aşk, kendini unutabilmektir.'",
+        "Hz. Ali: 'Düşmanını tanı, dostunu daha iyi tanı.'",
+        "Mevlana: 'Her şeyin başı sevgidir.'",
+        "Yunus Emre: 'Bütün mürşitlerin tarif ettiği aşk, Allah aşkıdır.'",
+        "İbn Sina: 'Bilgi, insanın içindeki karanlıkları aydınlatır.'",
+        "Hz. Muhammed (SAV): 'Kim bir kişiye doğru yolu gösterirse, ona bir dünya kadar sevap verilir.'",
+        "Bahaeddin Nakşibend: 'Gerçek derviş, her şeyin içindedir ama hiçbir şeye bağlı değildir.'",
+        "İbn Tufeyl: 'İnsanlar, hayatın anlamını sorgulamadan geçerler.'",
+        "İbn Haldun: 'Toplumların yükselmesi için eğitim şarttır.'",
+        "Süleyman Çelebi: 'Ey aşk, aşk olmasaydın, bu dünyada ne vardı?'",
+        "İmam Gazali: 'İlim, insanın gönlünde huzur yaratır.'",
+        "Mevlana: 'Bir insan bir kez sevdiğinde, her şeyin farkına varır.'",
+        "Zekeriyya el-Ensari: 'İman, sabır ve tevazu ile güçlenir.'",
+        "Molla Fenari: 'Gerçekte en zengin olan, gönlü zengin olandır.'",
+        "İbn al-Qayyim: 'İman, sabır ve tevekkül ile korunur.'",
+        "Hz. Ali: 'Kendini bilmek, her şeyin başlangıcıdır.'",
+        "İbn Bâcce: 'Zihnin huzuru, kalbin huzurunu getirir.'",
+        "Ahmed Yesevi: 'Sürekli düşün, sevgiye yönel, aşk her şeyin temelidir.'",
+        "Abdulkadir Geylani: 'Bir insanın kalbi ne kadar temizse, dünyası o kadar güzel olur.'",
+        "Şeyh Bedreddin: 'Gerçek yol, insanın kendi içindeki yolu bulmasıdır.'",
+        "İbn Hazm: 'Sevgi, kalpteki bir ateştir; ama ne kadar sabırlı olursak, o kadar az yakar.'",
+        "Süleyman Çelebi: 'Aşkın anlamı, her şeyin onun etrafında dönmesidir.'",
+        "Ebu Hanife: 'Zihin, sabırlı olursa, kalp de onu takip eder.'",
+        "Nizam-ül Mülk: 'Bir devletin en güçlü kaynağı, onun halkıdır.'",
+        "Mevlana: 'Sevgi, ne doğuda ne batıda, her yerde bir olmalıdır.'"
+    ];
+
+
+    function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        return quotes[randomIndex];
+    }
+
+    // Sayfa yüklendiğinde rastgele bir söz göster
+    document.getElementById("random-quote").innerText = getRandomQuote();
+</script>
 
 @endsection
