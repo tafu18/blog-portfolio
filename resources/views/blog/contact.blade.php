@@ -79,7 +79,7 @@
                 <ul class="list-unstyled">
                     <li><strong>Adres:</strong> Esenler, İstanbul, Türkiye</li>
                     <li><strong>Telefon:</strong> <a href="tel:+905385972318">+90 538 597 23 18</a></li>
-                    <li><strong>E-posta:</strong> <a href="mailto:tayfuntasdemir3@gmail.com">tayfuntasdemir3@gmail.com</a></li>
+                    <li><strong>E-posta:</strong> <a href="mailto:info@tayfuntasdemir.com.tr">info@tayfuntasdemir.com.tr</a></li>
                 </ul>
             </div>
             <div class="col-md-6">
