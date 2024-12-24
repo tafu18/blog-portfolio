@@ -3,7 +3,7 @@
 @section('title', 'İletişim')
 
 @section('content')
-<header class="masthead" style="background-image: url('{{ asset('storage/contact-bg.jpg') }}');">
+<header class="masthead" style="background-image: url('{{ asset('storage/contact-bg.jpeg') }}');">
     <div class="container position-relative px-4 px-lg-5" style="max-width: 90%; background-color: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -71,25 +71,52 @@
 </main>
 
 <!-- İletişim Bilgileri ve Harita-->
-<section id="contact-info" class="mb-5">
-    <div class="container px-4 px-lg-5">
+<section>
+    <div class="container px-4 px-lg-5 mb-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-4">
-                <h3>İletişim Bilgilerim</h3>
-                <ul class="list-unstyled">
-                    <li><strong>Adres:</strong> Esenler, İstanbul, Türkiye</li>
-                    <li><strong>Telefon:</strong> <a href="tel:+905385972318">+90 538 597 23 18</a></li>
-                    <li><strong>E-posta:</strong> <a href="mailto:info@tayfuntasdemir.com.tr">info@tayfuntasdemir.com.tr</a></li>
-                </ul>
+            <!-- Yeni Projeler İçin İşbirliği Yapmak İstiyorum Kartı -->
+            <div class="col-xl-12 col-lg-8 col-xl-5">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="card-title text-primary mb-4">Yeni Projeler İçin İşbirliği Yapmak İstiyorum</h3>
+                        <p class="card-text mb-4">Yazılım geliştirme konusunda tecrübemi projelerinizde kullanmak istiyorum. Eğer projelerinizde yazılım desteğine ihtiyacınız varsa, birlikte çalışmayı çok isterim. Detaylı bilgi ve görüşme için iletişime geçin.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <h3>Harita</h3>
-                <!-- Google Maps Embed -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48132.83121738314!2d28.82598199987802!3d41.06239193058806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caafe253f39f9b%3A0x349572fb9a436310!2sEsenler%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1734849766662!5m2!1str!2str" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+            <hr class="my-4">
+
+            <!-- İletişim Bilgileri ve Harita Kartı -->
+            <div class="col-xl-12 col-lg-8 col-xl-5">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body p-5">
+                        <div class="row">
+                            <!-- İletişim Bilgileri -->
+                            <div class="col-md-6">
+                                <h3>İletişim Bilgilerim</h3>
+                                <ul class="list-unstyled">
+                                    <li><strong>Adres:</strong> Esenler, İstanbul, Türkiye</li>
+                                    <li><strong>Telefon:</strong> <a href="tel:+905385972318">+90 538 597 23 18</a></li>
+                                    <li><strong>E-posta:</strong> <a href="mailto:info@tayfuntasdemir.com.tr">info@tayfuntasdemir.com.tr</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Harita -->
+                            <div class="col-md-6">
+                                <h3>Harita</h3>
+                                <!-- Google Maps Embed -->
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48132.83121738314!2d28.82598199987802!3d41.06239193058806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caafe253f39f9b%3A0x349572fb9a436310!2sEsenler%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1734849766662!5m2!1str!2str" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
+
+
 <script>
     const quotes = [
         "Mevlana: 'Konuşmadan önce, doğru, güzel ve gerekli olup olmadığını sor.'",

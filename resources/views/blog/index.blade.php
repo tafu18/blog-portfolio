@@ -3,7 +3,7 @@
 @section('title', 'Ana Sayfa')
 
 @section('content')
-<header class="masthead" style="background-image: url('{{ asset('storage/posts/main.webp') }}');">
+<header class="masthead" style="background-image: url('{{ asset('storage/anasayfa.png') }}');">
     <div class="container position-relative px-4 px-lg-5" style="max-width: 90%; background-color: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 8px;">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -27,17 +27,31 @@
         <div class="col-md-10 col-lg-8 col-xl-7">
             @foreach ($lastThreePosts as $post)
             <div class="post-preview mb-5">
-                <a href="{{ route('posts.show.2', $post->id) }}" class="text-decoration-none text-dark">
-                    <h2 class="post-title font-weight-bold mb-3">{{ $post->title }}</h2>
-                    <p class="post-subtitle text-muted">{{ Str::limit($post->content, 150) }}</p>
-                    <p class="post-meta text-muted">{{ $post->updated_at->format('d M, Y') }}</p>
-                </a>
+                <div class="row mb-4 align-items-center">
+                    <!-- Görsel kısmı -->
+                    <div class="col-md-4 col-lg-4">
+                        <a href="{{ route('posts.show.2', $post->id) }}">
+                            <img src="{{ asset('storage/' . $post->image) }}"
+                                alt="{{ $post->title }}"
+                                class="img-fluid rounded">
+                        </a>
+                    </div>
+                    <!-- Metin kısmı -->
+                    <div class="col-md-8 col-lg-8">
+                        <a href="{{ route('posts.show.2', $post->id) }}" class="text-decoration-none text-dark">
+                            <h2 class="post-title font-weight-bold mb-3">{{ $post->title }}</h2>
+                            <p class="post-subtitle text-muted">{{ Str::limit($post->content, 150) }}</p>
+                        </a>
+                        <p class="post-meta text-muted">{{ $post->updated_at->format('d M, Y') }}</p>
+                    </div>
+                </div>
                 <hr />
             </div>
             @endforeach
         </div>
     </div>
 </div>
+
 
 <!-- Blog ve Portfolyo Linkleri -->
 <div class="container mt-5">
