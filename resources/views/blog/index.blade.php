@@ -30,7 +30,7 @@
                 <div class="row mb-4 align-items-center">
                     <!-- Görsel kısmı -->
                     <div class="col-md-4 col-lg-4">
-                        <a href="{{ route('posts.show.2', $post->id) }}">
+                        <a href="{{ route('posts.show', $post->id) }}">
                             <img src="{{ asset('storage/' . $post->image) }}"
                                 alt="{{ $post->title }}"
                                 class="img-fluid rounded">
@@ -38,16 +38,20 @@
                     </div>
                     <!-- Metin kısmı -->
                     <div class="col-md-8 col-lg-8">
-                        <a href="{{ route('posts.show.2', $post->id) }}" class="text-decoration-none text-dark">
+                        <a href="{{ route('posts.show', $post->id) }}" class="text-decoration-none text-dark">
                             <h2 class="post-title font-weight-bold mb-3">{{ $post->title }}</h2>
                             <p class="post-subtitle text-muted">{{ Str::limit($post->content, 150) }}</p>
                         </a>
-                        <p class="post-meta text-muted">{{ $post->updated_at->format('d M, Y') }}</p>
+
+                        <p class="post-meta text-muted">{{ $post->created_at->translatedFormat('d F Y') }}</p>
                     </div>
                 </div>
                 <hr />
             </div>
             @endforeach
+        </div>
+        <div class="col-md-8 col-lg-8 text-center">
+            <a href="{{ route('posts') }}" class="btn btn-primary btn-lg px-5 py-3">Devamı İçin</a>
         </div>
     </div>
 </div>

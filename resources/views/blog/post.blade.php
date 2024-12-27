@@ -9,7 +9,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
                     <h1>{{ $post->title }}</h1>
-                    <span class="meta">{{ $post->updated_at }}</span>
+                    <p class="post-meta text-muted">{{ $post->created_at->translatedFormat('d F Y') }}</p>
                     <span id="random-quote"></span>
                 </div>
             </div>

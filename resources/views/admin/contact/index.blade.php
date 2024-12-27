@@ -13,6 +13,8 @@
                 <th>Mesaj</th>
                 <th>Durum</th>
                 <th>İşlem</th>
+                <th>Gönderilme Tarihi</th>
+                <th>Güncelleme Tarihi</th>
             </tr>
         </thead>
         <tbody>
@@ -25,14 +27,29 @@
                     <td>{{ $message->message }}</td>
                     <td>
                         @if($message->status)
-                            <span class="badge bg-success">Cevaplandı</span>
+                            <form action="{{ route('admin.contact.toggleStatus', $message) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-sm bg-success">
+                                    <span class="badge bg-success">Cevaplandı</span>
+                                </button>
+                            </form>
                         @else
-                            <span class="badge bg-warning">Cevaplanmadı</span>
+                            <form action="{{ route('admin.contact.toggleStatus', $message) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-sm bg-warning">
+                                    <span class="badge bg-warning">Cevaplanmadı</span>
+                                </button>
+                            </form>
                         @endif
                     </td>
+
                     <td>
-                    <a href="{{ route('admin.contact.show', $message) }}" class="btn btn-info btn-sm">Görüntüle</a>
+                        <a href="{{ route('admin.contact.show', $message) }}" class="btn btn-info btn-sm">Görüntüle</a>
                     </td>
+                    <td>{{ $message->updated_at->translatedFormat('d F Y H:i') }}</td>
+                    <td>{{ $message->created_at->translatedFormat('d F Y H:i') }}</td>
                 </tr>
             @endforeach
         </tbody>

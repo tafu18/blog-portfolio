@@ -15,7 +15,7 @@ class PostController extends Controller
         return view('admin.posts.index', compact('posts'));
     }
 
-    public function index2()
+    public function indexForUser()
     {
         $perPage = request()->has('perPage') ? request()->input('perPage') : 8;
 
@@ -35,14 +35,8 @@ class PostController extends Controller
 
     public function showForClient(Post $post)
     {
-        return view('posts.show', compact('post'));
-    }
-
-    public function showForClient2(Post $post)
-    {
         return view('blog.post', compact('post'));
     }
-
 
     public function create()
     {

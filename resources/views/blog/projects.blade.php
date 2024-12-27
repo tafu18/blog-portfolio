@@ -11,7 +11,7 @@
                     <h1>Projelerim</h1>
                     <span class="subheading">"Bilmek, Bulmak ve Olmak"</span>
                     <span id="random-quote"></span>
-                    <span class="meta">Son Güncelleme: {{ now()->format('d F Y') }}</span>
+                    <span class="meta">Son Güncelleme: {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</span>
                 </div>
             </div>
         </div>

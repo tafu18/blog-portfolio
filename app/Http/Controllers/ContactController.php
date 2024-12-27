@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\ContactMessage;
 use App\Http\Requests\ContactMessageRequest;
-use Illuminate\Http\Request;
+use App\Mail\ContactFormMail;
+use App\Mail\ContactFormMailToSender;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -15,21 +17,31 @@ class ContactController extends Controller
 
     public function index()
     {
-        $messages = ContactMessage::all(); // Mesajları al
-        return view('admin.contact.index', compact('messages')); // Mesajları view'a gönder
+        $messages = ContactMessage::all();
+        return view('admin.contact.index', compact('messages'));
     }
 
     public function submitForm(ContactMessageRequest $request)
     {
-        // Veritabanına kaydetme
         ContactMessage::create($request->validated());
+        //dd($request->name, $request->email, $request->message);
+        Mail::to($request->email)->send(new ContactFormMailToSender($request->name, $request->email, $request->message));
+        Mail::to('info@tayfuntasdemir.com.tr')->send(new ContactFormMail($request->name, $request->email, $request->message));
 
-        // Başarı mesajı
+
         return redirect()->route('contact')->with('success', 'Mesajınız başarıyla gönderildi!');
     }
 
     public function show(ContactMessage $contactMessage)
     {
         return view('admin.contact.show', compact('contactMessage'));
+    }
+
+    public function toggleStatus(ContactMessage $contactMessage)
+    {
+        $contactMessage->status = !$contactMessage->status;
+        $contactMessage->save();
+
+        return redirect()->route('admin.contact.index')->with('success', 'Mesaj durumu başarıyla güncellendi.');
     }
 }

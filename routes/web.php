@@ -5,48 +5,49 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Http\Request;
 
+require __DIR__ . '/auth.php';
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::group([], function () {
+
+    Route::get('/', [HomeController::class, 'index'])
+        ->name('home');
+
+    Route::get('/about', function () {
+        return view('blog.about');
+    })->name('about');
+
+    Route::get('/contact', function () {
+        return view('blog.contact');
+    })->name('contact');
+
+    Route::post('/contact', [ContactController::class, 'submitForm'])
+        ->name('contact.submit');
+
+    Route::get('/project', function () {
+        return view('blog.projects');
+    })->name('projects');
+
+    Route::get('/posts/{post}', [PostController::class, 'showForClient'])
+        ->name('posts.show');
+
+    Route::get('/posts', [PostController::class, 'indexForUser'])
+        ->name('posts');
+
 });
 
-Route::get('/about', function () {
-    return view('blog.about');
-})->name('about');
-
-Route::get('/contact', function () {
-    return view('blog.contact');
-})->name('contact');
-Route::post('/contact', [ContactController::class, 'submitForm'])->name('contact.submit');
-
-Route::get('/messages', [ContactController::class, 'index'])->name('contact.index');
-Route::get('/messages/{contactMessage}', [ContactController::class, 'show'])->name('admin.contact.show');
-
-
-
-Route::post('/admin/messages/{message}/toggle-status', [ContactController::class, 'toggleStatus'])->name('admin.messages.toggleStatus');
-
-
-
-Route::get('/project', function () {
-    return view('blog.projects');
-})->name('projects');
-
-
-Route::get('/symlink', function () {
-    $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/storage/app/public';
-    $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/public/storage';
-    symlink($targetFolder,$linkFolder);
-    echo 'Symlink process successfully completed';
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/messages/{contactMessage}', [ContactController::class, 'show'])->name('admin.contact.show');
+    Route::get('/messages', [ContactController::class, 'index'])->name('admin.contact.index');
+    Route::put('/messages/{contactMessage}/toggle-status', [ContactController::class, 'toggleStatus'])->name('admin.contact.toggleStatus');
+    Route::get('/posts', [PostController::class, 'index'])->name('admin.posts.index');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('admin.posts.create');
+    Route::post('/posts', [PostController::class, 'store'])->name('admin.posts.store');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('admin.posts.show');
+    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
+    Route::put('/posts/{post}', [PostController::class, 'update'])->name('admin.posts.update');
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
 });
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -54,27 +55,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/main', [HomeController::class, 'index'])->name('home');
-Route::get('/', [HomeController::class, 'index2'])->name('home1');
-
-
-
-require __DIR__ . '/auth.php';
-
-Route::get('/posts/{post}', [PostController::class, 'showForClient'])->name('posts.show');
-Route::get('/posts/2/{post}', [PostController::class, 'showForClient2'])->name('posts.show.2');
-
-Route::get('/posts2', [PostController::class, 'index2'])->name('posts');
-
-
-
-
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
-    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
-    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::get('/symlink', function () {
+    $targetFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage/app/public';
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/storage';
+    symlink($targetFolder, $linkFolder);
+    echo 'Symlink process successfully completed';
 });

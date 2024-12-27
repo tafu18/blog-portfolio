@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>@yield('title', 'Default Title')</title>
-    <link rel="icon" href="{{ asset('android-icon-36x36.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('favicon.jpeg') }}" type="image/jpeg">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 

@@ -32,7 +32,7 @@
 
     <!-- Geri Dön Butonu -->
     <div class="text-center">
-        <a href="{{ route('contact.index') }}" class="btn btn-secondary btn-lg">Mesajlar Listesine Dön</a>
+        <a href="{{ route('admin.contact.index') }}" class="btn btn-secondary btn-lg">Mesajlar Listesine Dön</a>
     </div>
 </div>
 @endsection
