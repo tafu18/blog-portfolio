@@ -17,17 +17,17 @@ class ContactController extends Controller
 
     public function index()
     {
-        $messages = ContactMessage::all();
+        $messages = ContactMessage::paginate(10);
         return view('admin.contact.index', compact('messages'));
     }
+
 
     public function submitForm(ContactMessageRequest $request)
     {
         ContactMessage::create($request->validated());
-        //dd($request->name, $request->email, $request->message);
+        
         Mail::to($request->email)->send(new ContactFormMailToSender($request->name, $request->email, $request->message));
         Mail::to('info@tayfuntasdemir.com.tr')->send(new ContactFormMail($request->name, $request->email, $request->message));
-
 
         return redirect()->route('contact')->with('success', 'Mesajınız başarıyla gönderildi!');
     }

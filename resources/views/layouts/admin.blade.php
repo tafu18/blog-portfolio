@@ -7,6 +7,9 @@
     <title>Admin Paneli</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="{{ asset('favicon.jpeg') }}" type="image/jpeg">
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
         /* Genel stil ve responsive düzenlemeler */
         body {
@@ -157,7 +160,7 @@
                     @auth
                     <!-- Kullanıcı adı tıklanabilir hale geldi -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('profile.edit') }}">{{ Auth::user()->name }}</a>
+                        <a class="nav-link" href="#">{{ Auth::user()->name }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
@@ -188,7 +191,6 @@
         <h4 class="heading">Admin Paneli</h4>
         <ul class="list-unstyled">
             <li><a href="{{ route('admin.posts.index') }}"><i class="fas fa-newspaper"></i> Gönderiler</a></li>
-            <li><a href="{{ route('admin.posts.create') }}"><i class="fas fa-plus-circle"></i> Yeni Gönderi</a></li>
             <li><a href="{{ route('admin.contact.index') }}"><i class="fas fa-envelope"></i> Mesajlar</a></li>
         </ul>
     </div>
