@@ -19,6 +19,14 @@
                             </span>
                         </a>
                     </li>
+                    <li class="list-inline-item">
+                        <a href="https://medium.com/@tayfuntasdemircomtr" target="_blank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-medium fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="small text-center text-muted fst-italic">"Kod sadece satır değil, çözüm üretir." 🚀</div>
                 <div class="small text-center text-muted fst-italic">Copyright &copy; Tayfun Taşdemir {{ Date('Y') }}</div>

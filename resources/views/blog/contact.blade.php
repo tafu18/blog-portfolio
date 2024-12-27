@@ -75,7 +75,7 @@
     <div class="container px-4 px-lg-5 mb-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <!-- Yeni Projeler İçin İşbirliği Yapmak İstiyorum Kartı -->
-            <div class="col-xl-12 col-lg-8 col-xl-5">
+            <div class="col-xl-12 col-lg-8 col-xl-5 mb-4">
                 <div class="card shadow-lg border-0 rounded-lg">
                     <div class="card-body p-5 text-center">
                         <h3 class="card-title text-primary mb-4">Yeni Projeler İçin İşbirliği Yapmak İstiyorum</h3>
@@ -92,20 +92,19 @@
                     <div class="card-body p-5">
                         <div class="row">
                             <!-- İletişim Bilgileri -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <h3>İletişim Bilgilerim</h3>
                                 <ul class="list-unstyled">
-                                    <li><strong>Adres:</strong> Esenler, İstanbul, Türkiye</li>
-                                    <li><strong>Telefon:</strong> <a href="tel:+905385972318">+90 538 597 23 18</a></li>
-                                    <li><strong>E-posta:</strong> <a href="mailto:info@tayfuntasdemir.com.tr">info@tayfuntasdemir.com.tr</a></li>
+                                    <li><i class="fas fa-map-marker-alt text-primary"></i> <strong>Adres:</strong> Esenler, İstanbul, Türkiye</li>
+                                    <li><i class="fas fa-phone-alt text-primary"></i> <strong>Telefon:</strong> <a href="tel:+905385972318">+90 538 597 23 18</a></li>
+                                    <li><i class="fas fa-envelope text-primary"></i> <strong>E-posta:</strong> <a href="mailto:info@tayfuntasdemir.com.tr">info@tayfuntasdemir.com.tr</a></li>
                                 </ul>
                             </div>
 
                             <!-- Harita -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-4">
                                 <h3>Harita</h3>
-                                <!-- Google Maps Embed -->
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48132.83121738314!2d28.82598199987802!3d41.06239193058806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caafe253f39f9b%3A0x349572fb9a436310!2sEsenler%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1734849766662!5m2!1str!2str" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48132.83121738314!2d28.82598199987802!3d41.06239193058806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caafe253f39f9b%3A0x349572fb9a436310!2sEsenler%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1734849766662!5m2!1str!2str" width="100%" height="300" style="border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                         </div>
                     </div>
@@ -115,7 +114,6 @@
         </div>
     </div>
 </section>
-
 
 <script>
     const quotes = [
