@@ -69,6 +69,7 @@
                             <h4 class="post-title mb-2">Kokpit</h4>
                             <p class="post-subtitle mb-3">Saha Yönetim Sistemi</p>
                         </a>
+                        <span class="post-meta text-muted">KEP entegrasyonu, export alımları, api loglama ve gerekli geliştirmeler yapıldı.</span>
                         <a href="https://kokpit.tech/tr/" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
@@ -92,6 +93,7 @@
                             <h4 class="post-title mb-2">Pera Passage</h4>
                             <p class="post-subtitle mb-3">Ziyaretçi Takip & Yönetim Sistemi</p>
                         </a>
+                        <span class="post-meta text-muted">Projenin başından sonuna kadar bulundum ve her şeyinde katkım var.</span>
                         <a href="https://perapassage.com/tr/" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
@@ -117,8 +119,9 @@
                     <div class="col-md-8">
                         <a href="https://oniki.net/tr/" class="text-decoration-none text-dark">
                             <h4 class="post-title mb-2">Oniki</h4>
-                            <p class="post-subtitle mb-3">Yeni Nesil Etkinlik & Dijital Networking</p>
+                            <p class="post-subtitle mb-3">Etkinlik düzenleme ve dijital networking desteği</p>
                         </a>
+                        <span class="post-meta text-muted">Redis kullanarak canlı etkinlik optimizasyonu yapıldı.</span>
                         <a href="https://oniki.net/tr/" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
@@ -142,6 +145,7 @@
                             <h4 class="post-title mb-2">Petner</h4>
                             <p class="post-subtitle mb-3">Evcil Hayvan Platformu</p>
                         </a>
+                        <span class="post-meta text-muted">Redis ile Dinamik Anasayfa Algoritması, Takipleşme, Arkadaşlık Gibi Katkılar Sağlandı.</span>
                         <a href="https://petner.com.tr/tr/" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
@@ -169,6 +173,7 @@
                             <h4 class="post-title mb-2">Avfast</h4>
                             <p class="post-subtitle mb-3">Avukatlar Arası Yardımlaşma ve Tevkil Platformu</p>
                         </a>
+                        <span class="post-meta text-muted">Avukatlar için platform geliştirme</span>
                         <a href="https://avfast.com.tr/" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
@@ -192,6 +197,7 @@
                             <h4 class="post-title mb-2">Fops</h4>
                             <p class="post-subtitle mb-3">Saha Yönetim Sistemi</p>
                         </a>
+                        <span class="post-meta text-muted">Sözleşmeler, qr kod ile müşteri anketleri gibi geliştirmeler yapıldı.</span>
                         <a href="https://fops.com.tr/tr" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
@@ -219,6 +225,7 @@
                             <h4 class="post-title mb-2">Ivmo</h4>
                             <p class="post-subtitle mb-3">Uluslararası Sanal Para İşlemleri</p>
                         </a>
+                        <span class="post-meta text-muted">Sanal para işlemleri için backend geliştirme</span>
                         <a href="https://ivmo.com/" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
@@ -231,8 +238,8 @@
                     <!-- Sol Tarafta Görsel -->
                     <div class="col-md-4">
                         <a href="https://www.gungoren.bel.tr/">
-                            <img src="https://seeklogo.com/images/G/gungoren-belediyesi-istanbul-logo-2C57426593-seeklogo.com.png"
-                                alt="title"
+                        <img src="https://seeklogo.com/images/G/gungoren-belediyesi-istanbul-logo-2C57426593-seeklogo.com.png"
+                        alt="title"
                                 class="img-fluid rounded">
                         </a>
                     </div>
@@ -242,6 +249,7 @@
                             <h4 class="post-title mb-2">Güngören Belediyesi</h4>
                             <p class="post-subtitle mb-3">Güngören Belediyesi Resmi Web Sitesi</p>
                         </a>
+                        <span class="post-meta text-muted">Saha yönetimi ve Emlak uygulama geliştirme</span>
                         <a href="https://www.gungoren.bel.tr/" class="text-decoration-none text-dark">
                             <p class="post-meta text-muted">Detay</p>
                         </a>
