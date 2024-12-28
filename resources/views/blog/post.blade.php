@@ -25,13 +25,7 @@
         <!-- Post Content -->
         <div class="col-md-8">
             <article class="mb-4">
-                @if($post->status !== 'published')
-                    <h2>Bu gönderi henüz yayınlanmadı.</h2>
-                    <p>Bu gönderi şu anda yayında değil. Lütfen daha sonra tekrar deneyin.</p>
-                @else
-                    <!-- Post content goes here -->
-                    <p>{{ $post->content }}</p>
-                @endif
+                <p>{!! nl2br(string: e($post->content)) !!}</p>
             </article>
         </div>
 
