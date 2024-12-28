@@ -28,6 +28,8 @@
                 </div>
                 @endif
                 <p>Benimle iletişime geçmek ister misiniz? Aşağıdaki formu doldurun, mesajınızı alır almaz size geri döneceğim!</p>
+                <hr class="my-4">
+
                 <div class="my-5">
                     <!-- İletişim Formu -->
                     <form id="contactForm" method="POST" action="{{ route('contact.submit') }}">

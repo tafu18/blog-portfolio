@@ -9,7 +9,10 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="post-heading">
                     <h1>{{ $post->title }}</h1>
-                    <p class="post-meta text-muted">{{ $post->created_at->translatedFormat('d F Y') }}</p>
+                    <p class="post-meta text-muted">
+                        {{ $post->created_at->translatedFormat('d F Y') }}
+                        | <span>{{ $post->views }} kez okundu </span> | <span><a href="https://www.linkedin.com/in/tayfuntasdemir/" target="_blank" class="text-muted" style="text-decoration:none">Tayfun Taşdemir</a></span>
+                    </p>
                     <span id="random-quote"></span>
                 </div>
             </div>
@@ -17,20 +20,44 @@
     </div>
 </header>
 
-<article class="mb-4">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <p>{!! nl2br(string: e($post->content)) !!}</p>
-            </div>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5">
+        <!-- Post Content -->
+        <div class="col-md-8">
+            <article class="mb-4">
+                @if($post->status !== 'published')
+                    <h2>Bu gönderi henüz yayınlanmadı.</h2>
+                    <p>Bu gönderi şu anda yayında değil. Lütfen daha sonra tekrar deneyin.</p>
+                @else
+                    <!-- Post content goes here -->
+                    <p>{{ $post->content }}</p>
+                @endif
+            </article>
         </div>
-        <div class="row gx-4 gx-lg-5" style="justify-content: right !important">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <span>Yazar: <a href="https://www.linkedin.com/in/tayfuntasdemir/" target="_blank">Tayfun Taşdemir</a></span>
-            </div>
+
+        <!-- Most Read Posts -->
+        <div class="col-md-4">
+            <aside class="most-read-posts" style="background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);">
+                <h4 class="text-center" style="font-weight: bold; margin-bottom: 20px;">En Çok Okunanlar</h4>
+                <ul class="list-unstyled">
+                    @foreach($mostReadPosts as $mostReadPost)
+                    <li class="mb-4">
+                        <a href="{{ route('posts.show', $mostReadPost->id) }}" style="text-decoration: none; color: #212529;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <img src="{{ asset('storage/' . $mostReadPost->image) }}" alt="{{ $mostReadPost->title }}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px;">
+                                <div>
+                                    <h6 style="margin: 0; font-size: 1rem; font-weight: 600;">{{ $mostReadPost->title }}</h6>
+                                    <small class="text-muted" style="font-size: 0.875rem;">{{ $mostReadPost->views }} kez okundu</small>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </aside>
         </div>
     </div>
-</article>
+</div>
 
 <script>
     const quotes = [
@@ -60,7 +87,6 @@
         "İbn al-Qayyim: 'Hak, yalnızca adaletle korunur, adalet ise her bireyin hakkına saygı göstermekle mümkündür.'",
         "İbn Arabi: 'İyi bir toplum, bireylerin haklarına saygı duyduğu bir toplumdur.'"
     ];
-
 
     function getRandomQuote() {
         const randomIndex = Math.floor(Math.random() * quotes.length);

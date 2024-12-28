@@ -9,12 +9,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $lastThreePosts = Post::latest()->take(3)->get();
-        $posts = Post::all();
+        $lastThreePosts = Post::where('status', '=', 'published')->latest()->take(3)->get();
+        $mostReadPosts = Post::where('status', '=', 'published')->orderBy('views', 'desc')->take(9)->get();
         $portfolioItems = [
             // Portföy öğeleri
         ];
-        return view('blog.index', compact('posts', 'portfolioItems', 'lastThreePosts'));
+        return view('blog.index', compact('mostReadPosts', 'portfolioItems', 'lastThreePosts'));
     }
-
 }

@@ -23,7 +23,7 @@ class PostController extends Controller
             $perPage = 4;
         }
 
-        $posts = Post::orderBy('created_at', 'desc')->paginate($perPage);
+        $posts = Post::where('status', '=', 'published')->orderBy('created_at', 'desc')->paginate($perPage);
         return view('blog.posts', compact('posts'));
     }
 
@@ -35,7 +35,20 @@ class PostController extends Controller
 
     public function showForClient(Post $post)
     {
-        return view('blog.post', compact('post'));
+        $mostReadPosts = Post::where('status', '=', 'published')
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
+
+        if ($post->status != 'published') {
+            return view('blog.not_published', compact('post', 'mostReadPosts'));
+        }
+
+        if ($post->status == 'published') {
+            $post->increment('views');
+        }
+
+        return view('blog.post', compact('post', 'mostReadPosts'));
     }
 
     public function create()
