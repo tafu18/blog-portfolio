@@ -7,18 +7,22 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Sıra No</th>
             <th>Başlık</th>
             <th>Durum</th>
+            <th>Medium Linki</th>
             <th>İşlemler</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($posts as $post)
+        @foreach ($posts as $index => $post)
         <tr>
-            <td>{{ $post->id }}</td>
+            <td>{{ $index + 1 }}</td>
             <td>{{ $post->title }}</td>
             <td>{{ $post->status }}</td>
+
+            <td><a href="{{ $post->medium_link }}" target="_blank" rel="noopener noreferrer">@if ($post->medium_link){{ $post->title }}@endif</a></td>
+
             <td>
                 <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-info btn-sm">Görüntüle</a>
                 <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning btn-sm">Düzenle</a>

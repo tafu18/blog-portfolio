@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\StatisticsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 
@@ -47,6 +48,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('admin.posts.edit');
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('admin.posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
+
+    Route::get('/', [StatisticsController::class, 'dashboard'])->name('admin.dashboard');
 });
 
 Route::middleware('auth')->group(function () {

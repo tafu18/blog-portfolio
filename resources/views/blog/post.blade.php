@@ -25,7 +25,11 @@
         <!-- Post Content -->
         <div class="col-md-8">
             <article class="mb-4">
+                @if ($post->medium_link)
+                    <a href="{{ $post->medium_link }}" target="_blank" class="btn btn-outline-secondary mt-2 col-md-12">Ayrıntılı Makale</a>
+                @endif
                 <p>{!! nl2br(string: e($post->content)) !!}</p>
+
             </article>
         </div>
 

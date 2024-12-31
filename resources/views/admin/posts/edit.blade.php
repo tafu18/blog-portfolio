@@ -30,6 +30,10 @@
                 <option value="published" {{ $post->status === 'published' ? 'selected' : '' }}>Published</option>
             </select>
         </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Medium Link</label>
+            <input type="text" name="medium_link" id="medium_link" class="form-control" value="{{ $post->medium_link }}" >
+        </div>
         <button type="submit" class="btn btn-success">Update Post</button>
         <a href="{{ route('admin.posts.index') }}" class="btn btn-secondary">Cancel</a>
     </form>

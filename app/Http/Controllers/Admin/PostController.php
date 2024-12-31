@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::paginate(15);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -61,6 +61,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
+            'medium_link' => 'nullable',
             'image' => 'nullable|image',
             'status' => 'required|in:draft,published',
         ]);
@@ -85,6 +86,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
+            'medium_link' => 'nullable',
             'image' => 'nullable|image',
             'status' => 'required|in:draft,published',
         ]);

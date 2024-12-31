@@ -38,7 +38,7 @@
                                 <h4 class="post-title mb-2">{{ $post->title }}</h4>
                                 <p class="post-subtitle mb-3">{{ Str::limit($post->content, 100) }}</p>
                             </a>
-                            <p class="post-meta text-muted">{{ $post->created_at->translatedFormat('d F Y') }}</p>
+                            <p class="post-meta text-muted">{{ $post->created_at->translatedFormat('d F Y') }} <span> | {{ $post->views }} kez okundu</span></p>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,8 @@
             </div>
             @endif
             <h1 class="display-8 text-center mb-4">{{ $post->title }}</h1>
-                <p> {!! nl2br(e($post->content)) !!}</p> <!-- Normal metin olarak '#' işlenir -->
+            <p> {!! nl2br(e($post->content)) !!}</p> <!-- Normal metin olarak '#' işlenir -->
+            <p>Medium Linki: <a href="{{ $post->medium_link }}" target="_blank" rel="noopener noreferrer">{{ $post->medium_link }}</a></p>
         </div>
     </div>
 

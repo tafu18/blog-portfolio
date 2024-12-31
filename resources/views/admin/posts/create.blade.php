@@ -24,8 +24,13 @@
                 <option value="published">Published</option>
             </select>
         </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Medium Link</label>
+            <input type="text" name="medium_link" id="medium_link" class="form-control" value="{{ old('medium_link') }}">
+        </div>
         <button type="submit" class="btn btn-success">Create Post</button>
         <a href="{{ route('admin.posts.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection
+

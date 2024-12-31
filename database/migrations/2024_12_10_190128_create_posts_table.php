@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('content');
             $table->string('image')->nullable();
+            $table->string('medium_link')->nullable();
             $table->enum('status', ['draft', 'published'])->default('draft');
             $table->integer('views')->default(0);
             $table->timestamps();

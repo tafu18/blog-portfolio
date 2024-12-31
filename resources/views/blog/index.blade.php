@@ -42,8 +42,7 @@
                             <h2 class="post-title font-weight-bold mb-3">{{ $post->title }}</h2>
                             <p class="post-subtitle text-muted">{{ Str::limit($post->content, 150) }}</p>
                         </a>
-
-                        <p class="post-meta text-muted">{{ $post->created_at->translatedFormat('d F Y') }}</p>
+                        <p class="post-meta text-muted">{{ $post->created_at->translatedFormat('d F Y') }} <span> | {{ $post->views }} kez okundu</span></p>
                     </div>
                 </div>
                 <hr />
@@ -72,7 +71,7 @@
             </aside>
         </div>
         <div class="col-md-8 col-lg-8 text-center">
-            <a href="{{ route('posts') }}" class="btn btn-primary btn-lg px-5 py-3">Devamı İçin</a>
+            <a href="{{ route('posts') }}" class="btn btn-primary btn-lg px-5 py-3">Daha Fazla</a>
         </div>
     </div>
 </div>

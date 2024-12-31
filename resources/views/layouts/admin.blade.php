@@ -190,7 +190,8 @@
     <div class="sidebar">
         <h4 class="heading">Admin Paneli</h4>
         <ul class="list-unstyled">
-            <li><a href="{{ route('admin.posts.index') }}"><i class="fas fa-newspaper"></i> Gönderiler</a></li>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fas fa-tachometer-alt"></i> Genel Bakış</a></li>
+        <li><a href="{{ route('admin.posts.index') }}"><i class="fas fa-newspaper"></i> Gönderiler</a></li>
             <li><a href="{{ route('admin.contact.index') }}"><i class="fas fa-envelope"></i> Mesajlar</a></li>
         </ul>
     </div>
