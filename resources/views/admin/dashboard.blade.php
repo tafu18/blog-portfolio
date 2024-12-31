@@ -9,7 +9,7 @@
 </style>
 
 <div class="container mt-4">
-    <h1>Admin Dashboard</h1>
+    <h1>Genel Bakış</h1>
 
     <div class="row mt-5">
         <!-- Post Statistics Chart -->
