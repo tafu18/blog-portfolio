@@ -11,6 +11,10 @@ class PostController extends Controller
 {
     public function index()
     {
+        if (auth()->check() && auth()->user()->type === 'gift') {
+            return redirect()->route('gift.dashboard');
+        }
+        
         $posts = Post::paginate(15);
         return view('admin.posts.index', compact('posts'));
     }

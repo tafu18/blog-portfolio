@@ -9,13 +9,24 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Gift\GiftController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-/*     Route::get('register', [RegisteredUserController::class, 'create'])
+    /*     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']); */
+
+    Route::get('gift/register', [GiftController::class, 'registerCreate'])
+        ->name('gift.register');
+
+    Route::post('gift/register', [GiftController::class, 'registerStore']);
+
+    Route::get('gift/login', [GiftController::class, 'loginCreate'])
+        ->name('gift.login');
+
+    Route::post('gift/login', [GiftController::class, 'loginStore']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');

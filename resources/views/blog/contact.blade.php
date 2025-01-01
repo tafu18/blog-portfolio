@@ -100,6 +100,17 @@
                                     <li><i class="fas fa-map-marker-alt text-primary"></i> <strong>Adres:</strong> Esenler, İstanbul, Türkiye</li>
                                     <li><i class="fas fa-phone-alt text-primary"></i> <strong>Telefon:</strong> <a href="tel:+905385972318">+90 538 597 23 18</a></li>
                                     <li><i class="fas fa-envelope text-primary"></i> <strong>E-posta:</strong> <a href="mailto:info@tayfuntasdemir.com.tr">info@tayfuntasdemir.com.tr</a></li>
+                                    <li><i class="fas fa-envelope text-primary"></i>
+                                        @if(auth()->check()) <!-- Kullanıcı giriş yaptıysa -->
+                                        @if(auth()->user()->type == 'gift') <!-- Kullanıcının tipi 'gift' ise -->
+                                        <a href="{{ route('gift.dashboard') }}"><strong>Hediyeleşme Uygulaması</strong></a>
+                                        @elseif(auth()->user()->type == 'admin') <!-- Kullanıcının tipi 'admin' ise -->
+                                        <a href="{{ route('gift.register') }}"><strong>Hediyeleşme Uygulaması</strong></a>
+                                        @endif
+                                        @else <!-- Kullanıcı giriş yapmadıysa -->
+                                        <a href="{{ route('gift.register') }}"><strong>Hediyeleşme Uygulaması</strong></a>
+                                        @endif
+                                    </li>
                                 </ul>
                             </div>
 

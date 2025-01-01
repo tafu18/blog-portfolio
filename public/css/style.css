@@ -10798,3 +10798,13 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.gift{
+    position: relative;
+    margin-bottom: 3rem;
+    padding-top: calc(5rem + 57px);
+    padding-bottom: 8rem;
+    background: no-repeat center center;
+    background-color: white;
+    background-size: cover;
+    background-attachment: scroll;
+}

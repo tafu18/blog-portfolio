@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\StatisticsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Gift\GiftController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Artisan;
 
 require __DIR__ . '/auth.php';
 
@@ -34,7 +36,6 @@ Route::group([], function () {
 
     Route::get('/posts', [PostController::class, 'indexForUser'])
         ->name('posts');
-
 });
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
@@ -58,9 +59,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/gift/dashboard', [GiftController::class, 'index'])->name('gift.dashboard')->middleware('auth');
+Route::post('/choose-letter', [GiftController::class, 'chooseLetter'])->name('choose.letter');
+Route::post('/gifts', [GiftController::class, 'store'])->name('gifts.store');
+Route::get('/gifts', [GiftController::class, 'index'])->name('gifts.index');
+
+
 Route::get('/symlink', function () {
     $targetFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage/app/public';
     $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/public/storage';
     symlink($targetFolder, $linkFolder);
     echo 'Symlink process successfully completed';
+});
+
+
+Route::get('/run-migrations', function () {
+    if (env('APP_ENV') === 'production') {
+        // Production ortamında ise migration'ı çalıştır
+        Artisan::call('migrate', [
+            '--force' => true  // --force ile onay vermeden çalıştırılmasını sağlarız
+        ]);
+
+        return 'Migrations have been run successfully in production!';
+    }
+
+    return 'Migrations can only be run in the production environment.';
 });
