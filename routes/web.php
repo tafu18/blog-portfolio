@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\StatisticsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Gift\GiftController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PrayerTimeController;
 use Illuminate\Support\Facades\Artisan;
 
 require __DIR__ . '/auth.php';
@@ -63,6 +64,17 @@ Route::get('/gift/dashboard', [GiftController::class, 'index'])->name('gift.dash
 Route::post('/choose-letter', [GiftController::class, 'chooseLetter'])->name('choose.letter');
 Route::post('/gifts', [GiftController::class, 'store'])->name('gifts.store');
 Route::get('/gifts', [GiftController::class, 'index'])->name('gifts.index');
+
+
+Route::get('/prayer-times', function () {
+    return view('prayer');
+});
+Route::post('/api/get-prayer-times', [PrayerTimeController::class, 'getTimes'])->name('prayer-times.get');
+
+Route::get('/prayer-times-monthly', function () {
+    return view('prayer-monthly');
+});
+Route::post('/prayer-times-monthly', [PrayerTimeController::class, 'getMonthlyTimes'])->name('prayer-times.monthly');
 
 
 Route::get('/symlink', function () {
